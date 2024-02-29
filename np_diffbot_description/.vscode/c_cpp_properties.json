@@ -1,0 +1,24 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/ubuntu/ros2_ws/install/ros2_control_demo_example_2/include/**",
+        "/opt/ros/humble/include/**",
+        "/home/ubuntu/ros2_ws/src/examples/rclcpp/composition/minimal_composition/include/**",
+        "/home/ubuntu/ros2_ws/src/examples/rclcpp/executors/cbg_executor/include/**",
+        "/home/ubuntu/ros2_ws/src/examples/rclcpp/wait_set/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}

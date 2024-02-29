@@ -1,0 +1,27 @@
+{
+    "configurations": [
+        {
+            "browse": {
+                "databaseFilename": "${default}",
+                "limitSymbolsToIncludedHeaders": false
+            },
+            "includePath": [
+                "/home/ubuntu/ros2_ws/install/np_diffbot/include/**",
+                "/home/ubuntu/ros2_ws/install/serial/include/",
+                "/home/ubuntu/ros2_ws/install/kangaroo_x2_driver/include/**",
+                "/opt/ros/humble/include/**",
+                "/home/ubuntu/ros2_ws/src/examples/rclcpp/composition/minimal_composition/include/**",
+                "/home/ubuntu/ros2_ws/src/examples/rclcpp/executors/cbg_executor/include/**",
+                "/home/ubuntu/ros2_ws/src/examples/rclcpp/wait_set/include/**",
+                "/usr/include/**",
+                "${workspaceFolder}/hardware/include/**"
+            ],
+            "name": "ROS",
+            "intelliSenseMode": "gcc-x64",
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "gnu17",
+            "cppStandard": "c++17"
+        }
+    ],
+    "version": 4
+}

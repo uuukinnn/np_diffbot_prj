@@ -1,0 +1,31 @@
+launch:
+
+- node:
+     pkg: "joy"
+     exec: "joy_node"
+     param:
+     - 
+       name: "dev"
+       value: "/dev/input/js2"
+
+- node:
+     pkg: "teleop_twist_joy"
+     exec: "teleop_node"
+
+- node:
+     pkg: "twist_stamper"
+     exec: "twist_stamper"
+     remap:
+     -
+        from: "/cmd_vel_in"
+        to: "/cmd_vel"
+     -
+        from: "/cmd_vel_out"
+        to: "/diffbot_base_controller/cmd_vel"
+     param:
+     -
+       name: "frame_id"
+       value: "base_link"
+
+- include:
+     file: "$(find-pkg-share np_diffbot)/launch/diffbot.launch.py"
