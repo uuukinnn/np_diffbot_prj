@@ -181,8 +181,7 @@ hardware_interface::CallbackReturn DiffBotSystemHardware::on_activate(
     err
     );
 
-  RCLCPP_INFO(
-      rclcpp::get_logger("DiffBotSystemHardware"), "K1 & K2 started............");
+  RCLCPP_INFO(rclcpp::get_logger("DiffBotSystemHardware"), "K1 & K2 started............");
 
   // hardware_interface::CallbackReturn::FAILURE;
   // for (auto i = 0; i < hw_start_sec_; i++)
@@ -241,7 +240,7 @@ hardware_interface::return_type DiffBotSystemHardware::read(
   hw_positions_[1]= right_wheel_count*(2*M_PI)/enc_count_per_rev;
   hw_velocities_[1] = (hw_positions_[1] - pre_pos) / deltaSeconds;
 
-  RCLCPP_INFO(rclcpp::get_logger(
+  RCLCPP_DEBUG(rclcpp::get_logger(
     "DiffBotSystemHardware"), 
     "Left_WHEEL_POS: %0.5f, RIGHT_WHEEL_POS: %0.5f",
     left_wheel_count,right_wheel_count
@@ -253,17 +252,17 @@ hardware_interface::return_type DiffBotSystemHardware::read(
 hardware_interface::return_type np_diffbot::DiffBotSystemHardware::write(
   const rclcpp::Time & /*time*/, const rclcpp::Duration & /*period*/)
 {
-  RCLCPP_INFO(rclcpp::get_logger("DiffBotSystemHardware"), "Writing...");
+  RCLCPP_DEBUG(rclcpp::get_logger("DiffBotSystemHardware"), "Writing...");
 
   for (auto i = 0u; i < hw_commands_.size(); i++)
   {
-    RCLCPP_INFO(
+    RCLCPP_DEBUG(
       rclcpp::get_logger("DiffBotSystemHardware"), "Got command %.5f for '%s'!", hw_commands_[i],
       info_.joints[i].name.c_str());
     
     hw_velocities_[i] = hw_commands_[i]*enc_count_per_rev/(2*M_PI);
 
-    RCLCPP_INFO(
+    RCLCPP_DEBUG(
       rclcpp::get_logger("DiffBotSystemHardware"), "Send velocity %.5f for '%s'!", 
       hw_velocities_[i],
       info_.joints[i].name.c_str());
@@ -272,7 +271,7 @@ hardware_interface::return_type np_diffbot::DiffBotSystemHardware::write(
   K1->s((int)hw_velocities_[0]);
   K2->s((int)hw_velocities_[1]);
 
-  RCLCPP_INFO(rclcpp::get_logger("DiffBotSystemHardware"), "Joints successfully written!");
+  RCLCPP_DEBUG(rclcpp::get_logger("DiffBotSystemHardware"), "Joints successfully written!");
 
   return hardware_interface::return_type::OK;
 }

@@ -9,11 +9,11 @@
           <plugin>np_diffbot/DiffBotSystemHardware</plugin>
           <!--param name="example_param_hw_start_duration_sec">0</param-->
           <!--param name="example_param_hw_stop_duration_sec">3.0</param-->
-          <param name="port">/tmp/ttyV0</param>
-          <!--param name="port">/dev/ttyUSB0</param-->
+          <!--param name="port">/tmp/ttyV0</param-->
+          <param name="port">/dev/ttyUSB0</param>
           <param name="baudrate">38400</param>
           <param name="timeout">1000</param>
-          <param name="enc_count_per_rev">1200</param>
+          <param name="enc_count_per_rev">65000</param>
         </hardware>
       </xacro:unless>
       <xacro:if value="${use_mock_hardware}">
